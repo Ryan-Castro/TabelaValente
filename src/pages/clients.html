@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/client.css">
+    <title>Clientes</title>
+</head>
+<body>
+    <header>
+        <a href="https://ryan-castro.github.io/tabela-compra/src/pages/admin.html">Voltar para Admin</a>
+        <input type="button" value="Adicionar" onclick="showAdd()" >
+    </header>
+    <main>
+    </main>
+    <div id="modal" class="modal">
+        <div id="content">
+            <h1>Criar cadastro</h1>
+            <label>Nome</label>
+            <input type="text" placeholder="Nome" id="name">
+            <label>Numero</label>
+            <input type="text" placeholder="Numero" id="numero">
+            <label>Endereço</label>
+            <input type="text" placeholder="Endereço" id="address">
+            <label>Bairro</label>
+            <input type="text" placeholder="Bairro" id="bairro">
+            <label>Cep</label>
+            <input type="text" placeholder="Cep"    id="cep">
+            <label>Cidade</label>
+            <input type="text" placeholder="Cidade" id="cidade">
+            <label>Estado</label>
+            <input type="text" placeholder="Estado" id="estado">
+            <label>Tel</label>
+            <input type="text" placeholder="Tel"    id="tel">
+            <label>Email</label>
+            <input type="text" placeholder="Email"  id="email">
+            <label>CPF ou CNPJ</label>
+            <input type="text" placeholder="CPF ou CNPJ" id="cpf">
+            <input type="button" value="Enviar" onclick="createCadastro()">
+            <input type="button" value="Cancelar" onclick="cancel()">
+        </div>
+    </div>
+    <div id="modalDelet" class="modal">
+        <div id="confirmDelet"> 
+            <h2>Deseja apagar:</h2>
+            <input type="hidden" id="deletId">
+            <input type="button" value="Apagar" onclick="delet()">
+            <input type="button" value="Cancelar" onclick="cancel()">
+        </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/client.js"></script>
+</body>
+</html>

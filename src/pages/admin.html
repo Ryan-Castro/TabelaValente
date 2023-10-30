@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valente Cosméticos</title>
+    <link rel="stylesheet" href="../styles/admin.css">
+</head>
+<body>
+    <header>
+        <h1>Valente cosméticos</h1>
+        <button onclick="addProduct()"><h1>Adicionar</h1></button>
+    </header>
+    <main>
+    </main>
+
+    <div id="modalSelect" class="modal">
+        <div id="contentSelect" class="contentModal">
+            <h1>Qual é o tipo de produto?</h1>
+            <button onclick="showAddPerValue('m')">Por Valor Masculino</button>
+            <button onclick="showAddPerValue('f')">Por Valor Feminino</button>
+            <button onclick="showAddPerUnit()">Por Unidade</button>
+            <button onclick="cancel()">Cancelar</button>
+        </div>
+    </div>
+
+
+
+    <div id="modalPerValue" class="modal">
+        <div id="contentPerValue" class="contentModal"> 
+            <h1 id="titleFunction">Adicionar</h1>
+            <input type="text" id="namePerValue" placeholder="Nome">
+            <input type="number" id="itemIdPerValue" placeholder="Id">
+            <input type="number" id="weightPerValue" placeholder="Peso">
+            <input type="number" id="pBasePerValue" placeholder="Preço Base">
+            <input type="number" id="p300PerValue" placeholder="Preço a cima de 300">
+            <input type="number" id="p600PerValue" placeholder="Preço a cima de 600">
+            <input type="number" id="p1500PerValue" placeholder="Preço a cima de 1500">
+            <select id="selectItemPerValue"></select>
+            <input type="button" value="Enviar" onclick="sendPerValue()">
+            <input type="hidden" id="productIDPerValue">
+            <input type="button" value="Cancelar" onclick="cancel()">
+        </div>
+    </div>
+
+
+    <div id="modalPerUnit" class="modal">
+        <div id="contentPerUnit" class="contentModal"> 
+            <h1 id="titleFunction">Adicionar</h1>
+            <input type="text" id="namePerUnit" placeholder="Nome">
+            <input type="number" id="itemIdPerUnit" placeholder="Id">
+            <input type="number" id="weightPerUnit" placeholder="Peso">
+            <section id="sectionPerUnit">
+                
+            </section>
+            <input type="button" value="Adicionar" onclick="addBrackPoint()">
+            <select id="selectItemPerUnit">
+                <option value="Minoxiplus">Minoxiplus</option>
+                <option value="Perfume Tradicional">Perfume Tradicional</option>
+                <option value="Perfume para barba com Minoxiplus">Perfume para barba com Minoxiplus</option>
+            </select>
+            <input type="button" value="Enviar" onclick="sendPerUnit()">
+            <input type="hidden" id="productIDPerUnit">
+            <input type="button" value="Cancelar" onclick="cancel()">
+        </div>
+    </div>
+
+
+    <div id="modalDelet" class="modal">
+        <div id="confirmDelet"> 
+            <h2>Deseja apagar:</h2>
+            <input type="hidden" id="deletId">
+            <input type="button" value="Apagar" onclick="delet()">
+            <input type="button" value="Cancelar" onclick="cancel()">
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="../scripts/firebase.js"></script>
+    <script src="../scripts/admin.js"></script>
+</body>
+</html>
