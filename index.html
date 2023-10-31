@@ -138,10 +138,15 @@
                 <input type="button" value="Voltar" onclick="showModal('MConfirmClient')">
             </div>
         </div>
-
+        <div id="MCompletemsm" class="modal">
+            <div class="content">
+                <p>Aviso:  95% das mercadorias são enviadas em 24 a 48 horas após a confirmação do pagamento, porém pedidos aos nossos parceiros um prazo de até 72hs, por gentileza.</p>
+                <input type="button" value="OK" onclick="showModal('MComplete')">
+            </div>
+        </div>
         <div id="MComplete" class="modal">
             <div class="content">
-                <h2>Ok, Nosso Atendente irá orçar o frete</h2>
+                <h2 id="msmCalcFrete">Ok, Nosso Atendente irá orçar o frete</h2>
                 <h3>Teria alguma observação?</h3>
                 <input type="text" id="textOBS" value="">
                 <input type="button" value="Enviar pedido" onclick="enviar()">

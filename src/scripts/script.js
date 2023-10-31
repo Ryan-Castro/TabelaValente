@@ -450,6 +450,7 @@ function check(){
                 transport.transportValue  = "(vamos calcular)"
                 transport.totValue = "(vamos calcular)"
             }
+            $('#msmCalcFrete').style.display = 'none'
             break;
         case "Preferencia": 
             showModal("MPreferredShipping");
@@ -463,6 +464,7 @@ function check(){
             transport.transportValue = Number(Math.ceil(weightTot / 25) * 30).toFixed(2)
             transport.totValue = Number(Number(Math.ceil(weightTot / 25) * 30) + valueTot).toFixed(2)
             transport.box = `%0A*Número%20de%20caixas*:%20${Math.ceil(Math.ceil(weightTot) / 25)}`
+            $('#msmCalcFrete').style.display = 'none'
             break;
         default: alert('Escolha a sua forma de envio')
             break;
@@ -494,18 +496,18 @@ function enviar(){
     })
     Object.keys(shopping[1]).forEach((id)=>{
         if(shopping[1][id].unit>0)
-        shopp += `COD:(${items.perUnit[id].id}) ${items.perUnit[id].name} %0A     Valorr Unid R$: *${Number(shopping[1][id].price/shopping[1][id].unit).toFixed(2)}* Quantidade: *${shopping[1][id].unit}*%0A     Tot: *R$ ${Number(shopping[1][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
+        shopp += `COD:(${items.perUnit[id].id}) ${items.perUnit[id].name} %0A     Valor Unid R$: *${Number(shopping[1][id].price/shopping[1][id].unit).toFixed(2)}* Quantidade: *${shopping[1][id].unit}*%0A     Tot: *R$ ${Number(shopping[1][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
     })
     Object.keys(shopping[2]).forEach((id)=>{
         if(shopping[2][id].unit>0)
-        shopp += `COD:(${items.perUnit[id].id}) ${items.perUnit[id].name} %0A     Valorr Unid R$: *${Number(shopping[2][id].price/shopping[2][id].unit).toFixed(2)}* Quantidade: *${shopping[2][id].unit}*%0A     Tot: *R$ ${Number(shopping[2][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
+        shopp += `COD:(${items.perUnit[id].id}) ${items.perUnit[id].name} %0A     Valor Unid R$: *${Number(shopping[2][id].price/shopping[2][id].unit).toFixed(2)}* Quantidade: *${shopping[2][id].unit}*%0A     Tot: *R$ ${Number(shopping[2][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
     })
     Object.keys(shopping[3]).forEach((id)=>{
         if(shopping[3][id].unit>0)
-        shoppFem += `COD:(${items.produtos_femininos[id].id}) ${items.produtos_femininos[id].name} %0A     Valorr Unid R$: *${Number(shopping[3][id].price/shopping[3][id].unit).toFixed(2)}* Quantidade: *${shopping[3][id].unit}*%0A     Tot: *R$ ${Number(shopping[3][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
+        shoppFem += `COD:(${items.produtos_femininos[id].id}) ${items.produtos_femininos[id].name} %0A     Valor Unid R$: *${Number(shopping[3][id].price/shopping[3][id].unit).toFixed(2)}* Quantidade: *${shopping[3][id].unit}*%0A     Tot: *R$ ${Number(shopping[3][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
     })
     location.href = `
-                    https://wa.me/5511969784323?text=*Esse%20é%20meu%20pedido*%20${triggerBot}%0A------------------------------%0A*Data:*%20${dayF}%20/%20${monthF}%20/%20${yearF}%0A*Nome:*%20${name.replaceAll(" ", "%20")}%0A${form}${transport.cep}${textEmail}==============================%0A*Envio%20via:*%20${transport.mode}${transport.box}%0A*Peso%20Total:*%20${weightTot.toFixed(2).toString().replace(".", ",")}%20Kg%0A*Forma%20de%20Pagamento:*%20${payment}%0A*Valor%20dos%20produtos:*%20R$%20${valueTot.toFixed(2).toString().replace(".", ",")}%0A*Valor%20do%20frete*:%20R$%20${transport.transportValue}%0A*Total:*%20R$%20${transport.totValue}%0A==============================${obs}${bonus}%0A==============================%0AValente%20Barbearia:%0A%0A${shopp.replaceAll(" ", "%20")}%0A==============================%0AValência%20Salon:%0A%0A${shoppFem.replaceAll(" ", "%20")}%0A==============================%0A%0A*Nossa%20equipe%20Valente%20agradece%20seu%20pedido*%0A%0A==============================%0A
+                    https://wa.me/5511969784323?text=*Esse%20é%20meu%20pedido*%20${triggerBot}%0A------------------------------%0A*Data:*%20${dayF}%20/%20${monthF}%20/%20${yearF}%0A*Nome:*%20${name.replaceAll(" ", "%20")}%0A${form}${transport.cep}${textEmail}==============================%0A*Envio%20via:*%20${transport.mode}${transport.box}%0A*Peso%20Total:*%20${weightTot.toFixed(2).toString().replace(".", ",")}%20Kg%0A*Forma%20de%20Pagamento:*%20${payment}%0A*Valor%20Valente%20Barbearia:*%20R$%20${valueMascTot.toFixed(2).toString().replace(".", ",")}%0A*Valor%20Valência%Salon:*%20R$%20${valueFemTot.toFixed(2).toString().replace(".", ",")}%0A*Valor%20do%20frete*:%20R$%20${transport.transportValue}%0A*Total:*%20R$%20${transport.totValue}%0A==============================${obs}${bonus}%0A==============================%0A*Produtos%20Valente%20Barbearia:*%0A%0A${shopp.replaceAll(" ", "%20")}%0A==============================%0A*Produtos%20Valência%20Salon:*%0A%0A${shoppFem.replaceAll(" ", "%20")}%0A==============================%0A%0A*Nossa%20equipe%20Valente%20agradece%20seu%20pedido*%0A%0A==============================%0A
                         `
 }
 

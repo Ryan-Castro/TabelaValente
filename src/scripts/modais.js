@@ -1,12 +1,11 @@
 function showModal(element){
     cancel()
-    
     if($("#name").value == ""){
-        alert("preencha seu nome completo")
+        alert("Preencha seu nome completo")
         return
     } 
     if(valueTot < 140 ){
-        alert("valor minimo de compre é 140R$")
+        alert("Valor minimo de compra é R$ 140")
         return
     }
     $("#" + element).style.display = "flex"
@@ -74,7 +73,7 @@ function createCadastro(){
             form += `*CNPJ/CPF:*%20${cpf}%0A*Endereço:*%20${address}%20%20%20%20%20*Num:*%20${numero}%0A*Bairro:*%20${bairro}%0A*Cidade:*%20${cidade}%20%20%20%20%20*Estado:*%20${estado}%0A`
             transport.cep == "" ? transport.cep = `*CEP:*%20${cep}` : transport.cep = transport.cep
             textEmail = `*Email:*%20${email}%0A`
-            showModal("MComplete")
+            showModal("MCompletemsm")
         }
     })
 }
@@ -92,7 +91,7 @@ function confirmCpf(){
             textEmail = `*Email:*%20${doc.data().email}%0A`
             $("#confirmCpf").style.backgroundColor = "#83FF83"
             setTimeout(()=>{
-                showModal("MComplete")
+                showModal("MCompletemsm")
             }, 1000)
         } else {
             $("#confirmCpf").style.backgroundColor = "#F54E4C"
@@ -137,29 +136,22 @@ function showBonus(){
     showModal("MBonus")
     let brasValue = Number(transport.transportValue)
     if(brasValue <= 65){
-        $("#optionsBonus").innerHTML = `
-        <input type="button" value="1 Minoxiplus 15% 120ML" onclick="saveBonus('1%20Minoxiplus%2015%%20120ML')"/>
-        <input type="button" value="1 Minoxiplus 15% 60ML" onclick="saveBonus('1%20Minoxiplus%2015%%2060ML')"/>
-        <input type="button" value="1 Minoxiplus 8% 60ML" onclick="saveBonus('1%20Minoxiplus%208%%2060ML')"/>
-        <input type="button" value="1 Pomada em pó" onclick="saveBonus('1%20Pomada%20em%20pó')"/>
-        `
+        setInputsBunos(1)
     }
     if(brasValue > 65 && brasValue <= 100){
-        $("#optionsBonus").innerHTML = `
-        <input type="button" value="2 Minoxiplus 15% 120ML" onclick="saveBonus('2%20Minoxiplus%2015%%20120ML')"/>
-        <input type="button" value="2 Minoxiplus 15% 60ML" onclick="saveBonus('2%20Minoxiplus%2015%%2060ML')"/>
-        <input type="button" value="2 Minoxiplus 8% 60ML" onclick="saveBonus('2%20Minoxiplus%208%%2060ML')"/>
-        <input type="button" value="2 Pomada em pó" onclick="saveBonus('2%20Pomada%20em%20pó')"/>
-        `
+        setInputsBunos(2)
     }
     if(brasValue > 100){
-        $("#optionsBonus").innerHTML = `
-        <input type="button" value="3 Minoxiplus 15% 120ML" onclick="saveBonus('3%20Minoxiplus%2015%%20120ML')"/>
-        <input type="button" value="3 Minoxiplus 15% 60ML" onclick="saveBonus('3%20Minoxiplus%2015%%2060ML')"/>
-        <input type="button" value="3 Minoxiplus 8% 60ML" onclick="saveBonus('3%20Minoxiplus%208%%2060ML')"/>
-        <input type="button" value="3 Pomada em pó" onclick="saveBonus('3%20Pomada%20em%20pó')"/>
-        `
+        setInputsBunos(3)
     }
+}
+function setInputsBunos(amount){
+    $("#optionsBonus").innerHTML = ""
+    bonusArrey.forEach((item_bonus)=>{
+        $("#optionsBonus").innerHTML += `
+            <input type="button" value="${amount} ${item_bonus}" onclick="saveBonus('${amount}%20${item_bonus.replaceAll(" ", "%20")}')"/>
+        `
+    })
 }
 
 function saveBonus(text){

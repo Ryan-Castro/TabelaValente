@@ -50,9 +50,25 @@ const categories = {
     'PROGRESSIVA MEGA PROGRESS 24K',
     'PROGRESSIVAS DE 120GR',
     'MINOXIPLUS TEA TREE 15%',
+    'LINHA GIRL',
+    'BOTOX CAPILAR'
   ],
   unit: [
     "Perfume Tradicional",
     "Perfume para barba com Minoxiplus"
   ],
 }
+
+const bonusArrey = [
+  'Minoxiplus 15% 120ML Gel Valente',
+  'Minoxiplus 15% 60ML Valente',
+  'Minoxiplus 8% 60ML Tea Tree',
+  'Balm F1 Black 80gr Valente',
+  'Balm Men Million 80gr Valente',
+  'Minoxiplus 15% 60ML Spray Valência Tea Teea',
+  'Minoxiplus 15% 120ML Gel Valência Tea Teea',
+  'Progressiva SF Argan 120gr Valência',
+  'Progressica Cacau 120gr Valência',
+  'Mascara Dama Million 80gr Valência',
+  'Mascara Desmaia Cabelo 80gr Valência',
+]
