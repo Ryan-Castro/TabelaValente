@@ -64,10 +64,12 @@ section{
     z-index: 5;
 }
 #sectionProduct tfoot .masc{
-    background-color: rgb(130, 130, 255);
+    background-color: rgb(0, 85, 85);
+    color: white;
 }
 #sectionProduct tfoot .fem{
-    background-color: rgb(255, 100, 255);
+    background-color:rgb(80, 0, 80);
+    color: white;
 }
 table{
     border-collapse: separate;
@@ -132,6 +134,12 @@ button img{
 }
 .category{
     background-color: rgb(0, 85, 85);
+    padding: 10px 20px;
+    font-size: 25px;
+    color: white;
+}
+.categoryFem{
+    background-color: rgb(80, 0, 80);
     padding: 10px 20px;
     font-size: 25px;
     color: white;

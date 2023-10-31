@@ -32,7 +32,7 @@ function listItemsPerValue(items, collection, inputSex){
                         <li>R$: ${doc.data().preço1500.toFixed(2)}</li>
                     </ul>
                     <div class="inputs">
-                        <input type="button" value="Alterar" onclick="setItemsPerValue('${doc.id}', '${inputSex}')">
+                        <input type="button" value="Alterar" onclick="setItemsPerValue('${doc.id}', '${collection}')">
                         <input type="button" value="Apagar" onclick="consfirDelet('${doc.id}', '${collection}')">
                     </div>
                 </div>
@@ -118,9 +118,9 @@ function addBrackPoint(){
 
 
 
-async function setItemsPerValue(id){
+async function setItemsPerValue(id, collection){
     $("#productIDPerValue").value = id
-    await db.collection("produtos").doc(id).get().then((snapshot)=>{
+    await db.collection(collection).doc(id).get().then((snapshot)=>{
         $("#namePerValue").value = snapshot.data().name
         $("#weightPerValue").value = snapshot.data().weight
         $("#pBasePerValue").value = snapshot.data().preçoBase
@@ -136,6 +136,16 @@ async function setItemsPerValue(id){
     })
     $("#titleFunction").innerHTML = "Alterar"
     $("#modalPerValue").style.display = "flex"
+    $('#selectItemPerValue').innerHTML = ""
+    if(collection == "produtos"){
+        categories.value_masc.forEach(category=>{
+            $('#selectItemPerValue').innerHTML += `<option value="${category}">${category}</option>` 
+        })
+        return
+    }
+    categories.value_fem.forEach(category=>{
+        $('#selectItemPerValue').innerHTML += `<option value="${category}">${category}</option>` 
+    })
 }
 async function setItemsPerUnit(id){
     $("#sectionPerUnit").innerHTML = ""

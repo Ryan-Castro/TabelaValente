@@ -150,7 +150,7 @@ function listing(){
     </tr>   `
     categories.value_fem.forEach((category)=>{
         tProdB.innerHTML += `   <tr>
-                                    <td colspan="6" class="category">${category}</td>
+                                    <td colspan="6" class="categoryFem">${category}</td>
                                 </tr>`
         Object.keys(items.produtos_femininos).forEach((produto, i)=>{
             if(items.produtos_femininos[produto].category == category){
@@ -505,7 +505,7 @@ function enviar(){
         shoppFem += `COD:(${items.produtos_femininos[id].id}) ${items.produtos_femininos[id].name} %0A     Valorr Unid R$: *${Number(shopping[3][id].price/shopping[3][id].unit).toFixed(2)}* Quantidade: *${shopping[3][id].unit}*%0A     Tot: *R$ ${Number(shopping[3][id].price).toFixed(2).replace(".", ",")}*%0A----------------------------------------------------%0A`
     })
     location.href = `
-                    https://wa.me/5511969784323?text=*Esse%20é%20meu%20pedido*%20${triggerBot}%0A------------------------------%0A*Data:*%20${dayF}%20/%20${monthF}%20/%20${yearF}%0A*Nome:*%20${name.replaceAll(" ", "%20")}%0A${form}${transport.cep}${textEmail}==============================%0A*Envio%20via:*%20${transport.mode}${transport.box}%0A*Peso%20Total:*%20${weightTot.toFixed(2).toString().replace(".", ",")}%20Kg%0A*Forma%20de%20Pagamento:*%20${payment}%0A*Valor%20dos%20produtos:*%20R$%20${valueTot.toFixed(2).toString().replace(".", ",")}%0A*Valor%20do%20frete*:%20R$%20${transport.transportValue}%0A*Total:*%20R$%20${transport.totValue}%0A==============================${obs}${bonus}%0A==============================%0AProdutos%20Masculinos:%0A%0A${shopp.replaceAll(" ", "%20")}%0A==============================%0AProdutos%20Femeninos:%0A%0A${shoppFem.replaceAll(" ", "%20")}%0A==============================%0A%0A*Nossa%20equipe%20Valente%20agradece%20seu%20pedido*%0A%0A==============================%0A
+                    https://wa.me/5511969784323?text=*Esse%20é%20meu%20pedido*%20${triggerBot}%0A------------------------------%0A*Data:*%20${dayF}%20/%20${monthF}%20/%20${yearF}%0A*Nome:*%20${name.replaceAll(" ", "%20")}%0A${form}${transport.cep}${textEmail}==============================%0A*Envio%20via:*%20${transport.mode}${transport.box}%0A*Peso%20Total:*%20${weightTot.toFixed(2).toString().replace(".", ",")}%20Kg%0A*Forma%20de%20Pagamento:*%20${payment}%0A*Valor%20dos%20produtos:*%20R$%20${valueTot.toFixed(2).toString().replace(".", ",")}%0A*Valor%20do%20frete*:%20R$%20${transport.transportValue}%0A*Total:*%20R$%20${transport.totValue}%0A==============================${obs}${bonus}%0A==============================%0AValente%20Barbearia:%0A%0A${shopp.replaceAll(" ", "%20")}%0A==============================%0AValência%20Salon:%0A%0A${shoppFem.replaceAll(" ", "%20")}%0A==============================%0A%0A*Nossa%20equipe%20Valente%20agradece%20seu%20pedido*%0A%0A==============================%0A
                         `
 }
 
