@@ -171,7 +171,7 @@
         </div>
         <div id="MBonus" class="modal">
             <div class="content">
-                <h1>Selecione uma das opções para seu bonus</h1>
+                <h1>Selecione uma das opções para seu bônus</h1>
                 <div id="optionsBonus"></div>
                 <input type="button" value="Cancel" onclick="showModal('MConfirmKangu')">
             </div>

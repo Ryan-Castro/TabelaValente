@@ -36,6 +36,6 @@
     $response = curl_exec($curlHandler);
     curl_close($curlHandler);
     $result = json_decode($response);   
-    
+    header('Content-Type: application/json');
     print_r($response);
 ?>

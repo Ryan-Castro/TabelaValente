@@ -4,7 +4,7 @@ function showModal(element){
         alert("Preencha seu nome completo")
         return
     } 
-    if(valueTot < 140 ){
+    if(valueMascTot < 140 && valueFemTot < 140 ){
         alert("Valor minimo de compra é R$ 140")
         return
     }
@@ -104,12 +104,12 @@ function confirmCpf(){
 }
 
 function calcKangu(){
-    if($("#kanguCep").value == ""){
-        alert("Escreva seu cep para calcularmos")
+    if($("#kanguCep").value == "" || /[a-zA-Z]/.test($("#kanguCep").value)){
+        alert("Escreva seu cep valido para calcularmos")
         return
     }
     transport.cep = `*CEP:*%20${$("#kanguCep").value}%0A`
-    fetch(`http://valentecosmeticos.com/api/?cepDestino=${$("#kanguCep").value}&peso=${weightTot}&valor=${valueTot}`).then(res=>res.json()).then((json)=>{
+    fetch(`http://localhost/TabelaValente/api/?cepDestino=${$("#kanguCep").value.replaceAll(" ", "")}&peso=${weightTot}&valor=${valueTot}`).then(res=>res.json()).then((json)=>{
         $("#optionsKangu").innerHTML = ""
         json.forEach(element => {
             let valueFreteRef = element.vlrFrete < 35 ? 35 : element.vlrFrete
@@ -121,6 +121,8 @@ function calcKangu(){
             </div>`
         });
         showModal("MSelectKangu")
+    }).catch(erro=>{
+        console.log(erro)
     })
 }
 
