@@ -109,7 +109,7 @@ function calcKangu(){
         return
     }
     transport.cep = `*CEP:*%20${$("#kanguCep").value}%0A`
-    fetch(`http://localhost/TabelaValente/api/?cepDestino=${$("#kanguCep").value.replaceAll(" ", "")}&peso=${weightTot}&valor=${valueTot}`).then(res=>res.json()).then((json)=>{
+    fetch(`http://valentecosmeticos.com/api/?cepDestino=${$("#kanguCep").value.replaceAll(" ", "")}&peso=${weightTot}&valor=${valueTot}`).then(res=>res.json()).then((json)=>{
         $("#optionsKangu").innerHTML = ""
         json.forEach(element => {
             let valueFreteRef = element.vlrFrete < 35 ? 35 : element.vlrFrete
